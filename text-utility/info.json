@@ -1,0 +1,85 @@
+{
+   "name":"text-utility",
+   "version":"1.0.0",
+   "label":"Text Utility",
+   "description":"Utilities to process strings with features like sentences similarity",
+   "publisher":"Naili.M",
+   "icon_small_name":"small_icon.png",
+   "icon_large_name":"large_icon.png",
+   "id":1492,
+   "operations":[
+      {
+         "operation":"sentence_similarity",
+         "title":"Get Sentence Similarity",
+         "description":"Providing a sample sentence and a list of candidates sentences, the action returns the one most similar to the sample",
+         "category":"utility",
+         "annotation":"sentence_similarity",
+         "enabled":true,
+         "parameters":[
+           {
+                 "title": "Sentence",
+                 "name": "sentence",
+                 "description": "Sentence you want to compare",
+                 "tooltip": "Sentence you want to compare",
+                 "type": "text",
+                 "visible": true,
+                 "editable": true,
+                 "required": true
+           },
+           {
+               "title": "Sentences To Compare",
+               "name": "sentences_to_compare_with",
+               "description": "Sentences to compare with. at least two are required in JSON format",
+               "tooltip": "Sentences to compare with. at least two are required in JSON format",
+               "type": "json",
+               "visible": true,
+               "editable": true,
+               "required": true
+           }
+         ],
+         "output_schema": [
+            {
+               "sentence":"",
+               "similarTo":"",
+               "scores":""
+            }
+        ]
+      }
+   ],
+   "category":"Utility",
+   "active":true,
+   "cs_compatible":true,
+   "system":false,
+   "playbook_collections":[
+
+   ],
+   "icon_small":"images/small_icon.png",
+   "icon_large":"images/large_icon.png",
+   "help_online":"https://docs.fortinet.com/document/fortisoar/1.2.0/text-utility/66/text-utility-v1-0-0",
+   "help_file":null,
+   "vendor_version":null,
+   "status":"Completed",
+   "install_result":{
+      "output":"",
+      "message":"Success"
+   },
+   "config_count":0,
+   "cs_approved":false,
+   "tags":[
+      "Text",
+      "AI",
+      "Utility"
+   ],
+   "remote_status":{
+      "output":"",
+      "status":"finished",
+      "message":"Success"
+   },
+   "rpm_full_name":null,
+   "installed":true,
+   "created":"2023-11-20T13:56:11.301754Z",
+   "modified":"2021-11-20T13:56:11.301782Z",
+   "agent":"",
+   "rpm_installed":null,
+   "forked_from":""
+}
