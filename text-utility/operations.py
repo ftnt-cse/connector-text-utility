@@ -4,6 +4,10 @@ import logging
 from .constants import *
 from connectors.core.connector import get_logger, ConnectorError
 from sentence_transformers import SentenceTransformer, util
+from connectors.cyops_utilities.builtins import download_file_from_cyops
+from PIL import Image
+import pytesseract
+import os
 
 
 logger = get_logger('text-utility')
@@ -44,3 +48,20 @@ def sentence_similarity(config, params):
     else:
         ConnectorError(GENERIC_ERROR)
         raise Exception(GENERIC_ERROR)
+        
+        
+        
+def image_to_text(config, params):
+    
+    image_iri = params.get("image_iri")
+    res = download_file_from_cyops(image_iri)
+    file_path = "{0}/{1}".format('/tmp', res['cyops_file_path'])
+    logger.info("File temporarily saved at: {}".format(file_path))  
+    if not os.path.isfile(TESSERACT_BIN):
+        ConnectorError("Tesseract binary not found please yum install -y tesseract")
+        raise Exception("Tesseract binary not found please yum install -y tesseract")
+    pytesseract.pytesseract.tesseract_cmd = TESSERACT_BIN
+    ocr_text = pytesseract.image_to_string(Image.open(file_path))
+    os.remove(file_path)
+    return ocr_text
+  
