@@ -1,0 +1,84 @@
+{
+    "name": "text-utility",
+    "version": "1.0.0",
+    "label": "Text Utility",
+    "description": "Utilities to process strings with features like sentences similarity and image to text OCR",
+    "publisher": "Naili.M",
+    "icon_small_name": "small_icon.png",
+    "icon_large_name": "large_icon.png",
+    "id": 1492,
+    "configuration": {},
+    "operations": [
+        {
+            "operation": "sentence_similarity",
+            "title": "Get Sentences Similarity",
+            "description": "Providing a sample sentence and a list of candidates sentences, the action returns the one most similar to the sample",
+            "category": "utility",
+            "annotation": "sentence_similarity",
+            "enabled": true,
+            "parameters": [
+                {
+                    "title": "Sentence",
+                    "name": "sentence",
+                    "description": "Sentence you want to compare",
+                    "tooltip": "Sentence you want to compare",
+                    "type": "text",
+                    "visible": true,
+                    "editable": true,
+                    "required": true
+                },
+                {
+                    "title": "Sentences To Compare",
+                    "name": "sentences_to_compare_with",
+                    "description": "Sentences to compare with. at least two are required in JSON format",
+                    "tooltip": "Sentences to compare with. at least two are required in JSON format",
+                    "type": "json",
+                    "visible": true,
+                    "editable": true,
+                    "required": true
+                }
+            ],
+            "output_schema": [
+                {
+                    "sentence": "",
+                    "similarTo": "",
+                    "scores": ""
+                }
+            ]
+        },
+        {
+            "operation": "image_to_text",
+            "title": "Image to Text OCR",
+            "description": "Extract text from image file",
+            "category": "utility",
+            "annotation": "image_to_text",
+            "enabled": true,
+            "parameters": [
+                {
+                    "title": "Image IRI",
+                    "name": "image_iri",
+                    "description": "FortiSOAR IRI of the image file to perform OCR on",
+                    "tooltip": "FortiSOAR IRI of the image file to perform OCR on",
+                    "type": "text",
+                    "visible": true,
+                    "editable": true,
+                    "required": true
+                }
+            ],
+            "output_schema": [
+                {
+                    "text": ""
+                }
+            ]
+        }
+    ],
+    "category": "Utility",
+    "active": true,
+    "cs_compatible": true,
+    "system": false,
+    "playbook_collections": [],
+    "icon_small": "images/small_icon.png",
+    "icon_large": "images/large_icon.png",
+    "help_online": "https://docs.fortinet.com/document/fortisoar/1.2.0/text-utility/66/text-utility-v1-0-0",
+    "vendor_version": null
+}
