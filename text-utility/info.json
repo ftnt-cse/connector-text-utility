@@ -2,7 +2,7 @@
     "name": "text-utility",
     "version": "1.0.0",
     "label": "Text Utility",
-    "description": "Utilities to process strings with features like sentences similarity and image to text OCR",
+    "description": "Utilities to process strings with features like sentences similarity and image to text OCR.",
     "publisher": "Fortinet",
     "icon_small_name": "small_icon.png",
     "icon_large_name": "large_icon.png",
@@ -80,6 +80,6 @@
     "playbook_collections": [],
     "icon_small": "images/small_icon.png",
     "icon_large": "images/large_icon.png",
-    "help_online": "",
+    "help_online": "https://github.com/fortinet-fortisoar/connector-text-utility/blob/release/1.0.0/docs/TextUtilityConnectorDoc.md",
     "vendor_version": null
 }
