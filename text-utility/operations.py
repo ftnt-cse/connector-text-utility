@@ -1,4 +1,9 @@
-""" operations.py """
+"""
+Copyright start
+MIT License
+Copyright (c) 2024 Fortinet Inc
+Copyright end
+"""
 
 import logging
 from .constants import *
@@ -13,8 +18,8 @@ import os
 logger = get_logger('text-utility')
 logger.setLevel(logging.DEBUG)
 
-def sentence_similarity(config, params):
 
+def sentence_similarity(config, params):
     scores = {}
     report = {}
     sentences = [ params.get("sentence") ]
