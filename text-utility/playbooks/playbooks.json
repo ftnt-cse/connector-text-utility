@@ -2,30 +2,126 @@
   "type": "workflow_collections",
   "data": [
     {
+      "@context": "/api/3/contexts/WorkflowCollection",
       "@type": "WorkflowCollection",
       "name": "Sample - Text Utility - 1.0.0",
       "description": "Sample playbooks for \"Text Utility\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
       "visible": true,
+      "image": "/api/3/images/00a9e61c-7132-4923-aaca-615b001af350",
       "uuid": "e086f270-6de3-4517-8a74-092f446ad72d",
-      "id": 54,
+      "id": 46,
+      "createDate": 1726559254.372337,
+      "modifyDate": 1726559254.372337,
       "deletedAt": null,
       "importedBy": [],
-      "recordTags": ["text-utility"],
+      "recordTags": [
+        "text-utility"
+      ],
       "workflows": [
         {
           "@type": "Workflow",
           "triggerLimit": null,
-          "name": "Get Sentence Similarity",
+          "name": "Image to Text OCR",
           "aliasName": null,
-          "tag": null,
-          "description": null,
+          "tag": "#Text Utility",
+          "description": "Extract text from image file",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1706938775,
+          "lastModifyDate": null,
+          "collection": "/api/3/workflow_collections/e086f270-6de3-4517-8a74-092f446ad72d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/34729532-ff44-4290-b091-bc869fc19553",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Image to Text OCR",
+              "description": null,
+              "arguments": {
+                "name": "Text Utility",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "text-utility",
+                "operation": "image_to_text",
+                "operationTitle": "Image to Text OCR"
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "00f8dbcd-d8c9-4bb1-be5c-12716d326d1e"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "36946479-ef64-43aa-b80f-faffc0ab7ae7",
+                "title": "Text Utility: Image to Text OCR",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "34729532-ff44-4290-b091-bc869fc19553"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Image to Text OCR",
+              "targetStep": "/api/3/workflow_steps/00f8dbcd-d8c9-4bb1-be5c-12716d326d1e",
+              "sourceStep": "/api/3/workflow_steps/34729532-ff44-4290-b091-bc869fc19553",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "4e5d4e31-1d46-4fab-9786-276f15354525"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "66fc866a-d9ab-4b67-bb5e-350e8156543c",
+          "id": 487,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "text-utility"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Sentence Similarity",
+          "aliasName": null,
+          "tag": null,
+          "description": "Gets sentence similarity with the sample statements provided.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1726559368,
           "collection": "/api/3/workflow_collections/e086f270-6de3-4517-8a74-092f446ad72d",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/ee8b433e-08dd-4fa7-9b08-28d3fdf492cb",
@@ -112,91 +208,19 @@
           "groups": [],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "6d96c3ce-2506-4f13-bde8-72cbaf78be54",
-          "id": 593,
+          "id": 486,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
           "importedBy": [],
-          "recordTags": ["text-utility"]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "66fc866a-d9ab-4b67-bb5e-350e8156543c",
-          "collection": "/api/3/workflow_collections/9aa46d52-63f3-4327-a3d8-a40dab22acaa",
-          "triggerLimit": null,
-          "description": "Extract text from image file",
-          "name": "Image to Text OCR",
-          "tag": "#Text Utility",
           "recordTags": [
             "text-utility"
-          ],
-          "isActive": false,
-          "debug": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/34729532-ff44-4290-b091-bc869fc19553",
-          "steps": [
-            {
-              "uuid": "34729532-ff44-4290-b091-bc869fc19553",
-              "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "route": "36946479-ef64-43aa-b80f-faffc0ab7ae7",
-                "title": "Text Utility: Image to Text OCR",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
-                "step_variables": {
-                  "input": {
-                    "records": "{{vars.input.records[0]}}"
-                  }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
-              },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
-            },
-            {
-              "uuid": "00f8dbcd-d8c9-4bb1-be5c-12716d326d1e",
-              "@type": "WorkflowStep",
-              "name": "Image to Text OCR",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "name": "Text Utility",
-                "config": "''",
-                "params": [],
-                "version": "1.0.0",
-                "connector": "text-utility",
-                "operation": "image_to_text",
-                "operationTitle": "Image to Text OCR"
-              },
-              "left": "188",
-              "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
-            }
-          ],
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "4e5d4e31-1d46-4fab-9786-276f15354525",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Image to Text OCR",
-              "sourceStep": "/api/3/workflow_steps/34729532-ff44-4290-b091-bc869fc19553",
-              "targetStep": "/api/3/workflow_steps/00f8dbcd-d8c9-4bb1-be5c-12716d326d1e"
-            }
           ]
         }
       ]
     }
   ],
-  "exported_tags": []
+  "exported_tags": [
+    "text-utility"
+  ]
 }
