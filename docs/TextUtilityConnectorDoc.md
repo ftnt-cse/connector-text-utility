@@ -7,7 +7,9 @@ Utilities to process strings with features like sentences similarity and image t
 Connector Version: 1.0.0
 
 
-Authored By: Naili.M
+Authored By: Fortinet CSE
+
+Contributors: Naili.M
 
 Certified: No
 ## Installing the connector
@@ -27,14 +29,14 @@ None.
 
 ## Actions supported by the connector
 The following automated operations can be included in playbooks and you can also use the annotations to access operations:
-<table border=1><thead><tr><th>Function</th><th>Description</th><th>Annotation and Category</th></tr></thead><tbody><tr><td>Get Sentences Similarity</td><td>Providing a sample sentence and a list of candidates sentences, the action returns the one most similar to the sample</td><td>sentence_similarity <br/>Utility</td></tr>
-<tr><td>Image to Text OCR</td><td>Extract text from image file</td><td>image_to_text <br/>Utility</td></tr>
+<table border=1><thead><tr><th>Function</th><th>Description</th><th>Annotation and Category</th></tr></thead><tbody><tr><td>Get Sentences Similarity</td><td>Providing a sample sentence and a list of candidates sentences, the action returns the one most similar to the sample.</td><td>sentence_similarity <br/>Utility</td></tr>
+<tr><td>Image to Text OCR</td><td>Extracts text from image file.</td><td>image_to_text <br/>Utility</td></tr>
 </tbody></table>
 
 ### operation: Get Sentences Similarity
 #### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Sentence</td><td>Sentence you want to compare
-</td></tr><tr><td>Sentences To Compare</td><td>Sentences to compare with. at least two are required in JSON format
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Sentence</td><td>Specify the sentence you want to compare.
+</td></tr><tr><td>Sentences To Compare</td><td>Specify the sentences to compare with. At least two are required in JSON format.
 </td></tr></tbody></table>
 
 #### Output
@@ -49,7 +51,7 @@ The output contains the following populated JSON schema:
 ]</pre>
 ### operation: Image to Text OCR
 #### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Image IRI</td><td>FortiSOAR IRI of the image file to perform OCR on
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Image IRI</td><td>Specify FortiSOAR IRI of the image file to perform OCR on.
 </td></tr></tbody></table>
 
 #### Output
