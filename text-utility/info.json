@@ -1,8 +1,8 @@
 {
     "name": "text-utility",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "label": "Text Utility",
-    "description": "Utilities to process strings with features like sentences similarity and image to text OCR.",
+    "description": "Utilities to process text with features like sentences similarity, OCR and macro extractions from MS Office documents",
     "publisher": "Fortinet CSE",
     "contributor": "Naili.M",
     "icon_small_name": "small_icon.png",
@@ -21,9 +21,10 @@
                 {
                     "title": "Sentence",
                     "name": "sentence",
-                    "description": "Sentence you want to compare",
-                    "tooltip": "Sentence you want to compare",
+                    "description": "Sentence/word you want to compare",
+                    "tooltip": "Sentence/word you want to compare",
                     "type": "text",
+                    "placeholder":"kilogram.doc",
                     "visible": true,
                     "editable": true,
                     "required": true
@@ -31,21 +32,16 @@
                 {
                     "title": "Sentences To Compare",
                     "name": "sentences_to_compare_with",
-                    "description": "Sentences to compare with. at least two are required in JSON format",
-                    "tooltip": "Sentences to compare with. at least two are required in JSON format",
+                    "description": "One word/sentence or more to compare with (in JSON format)",
+                    "tooltip": "One word/sentence or more to compare with (in JSON format) such as [\"microgram.doc\",\"picogram.doc\"]",
                     "type": "json",
+                    "value":["microgram.doc","picogram.doc"],
                     "visible": true,
                     "editable": true,
                     "required": true
                 }
             ],
-            "output_schema": [
-                {
-                    "sentence": "",
-                    "similarTo": "",
-                    "scores": ""
-                }
-            ]
+            "output_schema": ""
         },
         {
             "operation": "image_to_text",
@@ -71,7 +67,32 @@
                     "text": ""
                 }
             ]
-        }
+        },
+        {
+            "operation": "extract_macros",
+            "title": "Extract Macros",
+            "tooltip": "Extract macros code from MS Office documents",
+            "description": "Extract macros code from MS Office documents",
+            "category": "utility",
+            "annotation": "extract_macros",
+            "enabled": true,
+            "parameters": [
+                {
+                    "title": "File IRI",
+                    "name": "file_iri",
+                    "tooltip": "IRI of the MS Offile file within FortiSOAR from where to extract macros code",
+                    "type": "text",
+                    "visible": true,
+                    "editable": true,
+                    "required": true
+                }
+            ],
+            "output_schema": [
+                {
+                    "text": ""
+                }
+            ]
+        }        
     ],
     "category": "Utility",
     "active": true,
@@ -81,6 +102,6 @@
     "playbook_collections": [],
     "icon_small": "images/small_icon.png",
     "icon_large": "images/large_icon.png",
-    "help_online": "https://github.com/fortinet-fortisoar/connector-text-utility/blob/release/1.0.0/docs/TextUtilityConnectorDoc.md",
+    "help_online": "https://github.com/fortinet-fortisoar/connector-text-utility/blob/release/1.1.0/docs/TextUtilityConnectorDoc.md",
     "vendor_version": null
 }

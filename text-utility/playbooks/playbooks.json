@@ -2,16 +2,12 @@
   "type": "workflow_collections",
   "data": [
     {
-      "@context": "/api/3/contexts/WorkflowCollection",
       "@type": "WorkflowCollection",
-      "name": "Sample - Text Utility - 1.0.0",
+      "name": "Sample - Text Utility - 1.1.0",
       "description": "Sample playbooks for \"Text Utility\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
       "visible": true,
-      "image": "/api/3/images/00a9e61c-7132-4923-aaca-615b001af350",
       "uuid": "e086f270-6de3-4517-8a74-092f446ad72d",
-      "id": 46,
-      "createDate": 1726559254.372337,
-      "modifyDate": 1726559254.372337,
+      "id": 31,
       "deletedAt": null,
       "importedBy": [],
       "recordTags": [
@@ -31,7 +27,7 @@
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": null,
+          "lastModifyDate": 1738055680,
           "collection": "/api/3/workflow_collections/e086f270-6de3-4517-8a74-092f446ad72d",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/34729532-ff44-4290-b091-bc869fc19553",
@@ -43,11 +39,14 @@
               "arguments": {
                 "name": "Text Utility",
                 "config": "''",
-                "params": [],
-                "version": "1.0.0",
+                "params": {
+                  "image_iri": "{{vars.input.records[0].file['@id']}}"
+                },
+                "version": "1.1.0",
                 "connector": "text-utility",
                 "operation": "image_to_text",
-                "operationTitle": "Image to Text OCR"
+                "operationTitle": "Image to Text OCR",
+                "step_variables": []
               },
               "status": null,
               "top": "120",
@@ -64,17 +63,33 @@
                 "route": "36946479-ef64-43aa-b80f-faffc0ab7ae7",
                 "title": "Text Utility: Image to Text OCR",
                 "resources": [
-                  "alerts"
+                  "attachments"
                 ],
+                "__triggerLimit": true,
                 "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "displayConditions": {
+                  "attachments": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
                   }
                 },
                 "executeButtonText": "Execute",
-                "noRecordExecution": true,
-                "singleRecordExecution": false
+                "noRecordExecution": false,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": true
               },
               "status": null,
               "top": "20",
@@ -98,8 +113,10 @@
           ],
           "groups": [],
           "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
           "uuid": "66fc866a-d9ab-4b67-bb5e-350e8156543c",
-          "id": 487,
+          "id": 305,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -114,14 +131,14 @@
           "name": "Get Sentence Similarity",
           "aliasName": null,
           "tag": null,
-          "description": "Gets sentence similarity with the sample statements provided.",
+          "description": "Compares a string or sentence with other string or sentences and compute the similarity between them to identify similar ones",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1726559368,
+          "lastModifyDate": 1738053295,
           "collection": "/api/3/workflow_collections/e086f270-6de3-4517-8a74-092f446ad72d",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/ee8b433e-08dd-4fa7-9b08-28d3fdf492cb",
@@ -133,13 +150,13 @@
               "arguments": {
                 "name": "Text Utility",
                 "params": {
-                  "sentence": "primary string to compare",
-                  "sentences_to_compare_with": "[\n  \"primary string to eval\",\n  \"Sentence to eval\"\n]"
+                  "sentence": "playbook a",
+                  "sentences_to_compare_with": "[\"booksealab\",\"playbookshop\"]"
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "text-utility",
                 "operation": "sentence_similarity",
-                "operationTitle": "Sentence Similarity",
+                "operationTitle": "Get Sentences Similarity",
                 "pickFromTenant": false,
                 "step_variables": []
               },
@@ -207,8 +224,133 @@
           ],
           "groups": [],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
           "uuid": "6d96c3ce-2506-4f13-bde8-72cbaf78be54",
-          "id": 486,
+          "id": 306,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "text-utility"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Extract Macros",
+          "aliasName": null,
+          "tag": null,
+          "description": "Extract macros from MS Office document",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1738050554,
+          "collection": "/api/3/workflow_collections/e086f270-6de3-4517-8a74-092f446ad72d",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/17319f43-5868-4447-8eac-4d430b565401",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Extract Macros",
+              "description": null,
+              "arguments": {
+                "name": "Text Utility",
+                "params": {
+                  "file_iri": "{{vars.input.records[0].file['@id']}}"
+                },
+                "version": "1.1.0",
+                "connector": "text-utility",
+                "operation": "extract_macros",
+                "operationTitle": "Extract Macros",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "70c06f84-cbfc-4da0-86d3-2de7de92bc28"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "aa5d8c26-1fa1-46a3-8965-3e409f9a7eac",
+                "resources": [
+                  "attachments",
+                  "indicators"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  },
+                  "indicators": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  },
+                  "attachments": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": false,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": true
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "17319f43-5868-4447-8eac-4d430b565401"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Sentence Similarity",
+              "targetStep": "/api/3/workflow_steps/70c06f84-cbfc-4da0-86d3-2de7de92bc28",
+              "sourceStep": "/api/3/workflow_steps/17319f43-5868-4447-8eac-4d430b565401",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "b6697b37-7e75-4824-967e-ce58696d0cc9"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "7e0c4d4e-6ab6-40ac-b73e-f3fe21aae942",
+          "id": 307,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,

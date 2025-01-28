@@ -1,4 +1,3 @@
-networkx==2.6
-sentence-transformers>=2.7.0
+rapidfuzz
 pytesseract>=0.3.10
 pillow>=10.3.0
