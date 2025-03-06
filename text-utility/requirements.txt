@@ -1,3 +1,4 @@
 rapidfuzz
+oletools
 pytesseract>=0.3.10
 pillow>=10.3.0
