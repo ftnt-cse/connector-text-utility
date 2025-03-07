@@ -8,4 +8,4 @@
   - networkx
   - sentence-transformers
 
-- A new dependency `rapidfuzz` and `oletools` is added.
+- A new dependency, `rapidfuzz` and `oletools` have been added.
