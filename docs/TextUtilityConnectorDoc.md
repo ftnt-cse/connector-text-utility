@@ -23,7 +23,7 @@ Following enhancements have been made to the Text Utility Connector in version 1
 <li>sentence-transformers</li>
 </ul></li>
 
-<li>A new dependency <code>rapidfuzz</code> and <code>oletools</code> is added.</li>
+<li>A new dependency, <code>rapidfuzz</code> and <code>oletools</code> have been added.</li>
 </ul>
 
 ## Installing the connector
